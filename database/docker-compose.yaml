@@ -1,0 +1,26 @@
+version: '3.8'
+
+services:
+  db:
+    build: .  
+    image: data-collect-postgres-with-cron  
+    container_name: data-collect-postgres
+    restart: always
+    environment:
+      POSTGRES_DB: data_collect
+      POSTGRES_USER: data_collect
+      POSTGRES_PASSWORD: data_collect
+    volumes:
+      - ./init:/docker-entrypoint-initdb.d
+      - pg_data:/var/lib/postgresql/data
+    ports:
+      - "5432:5432"
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U $$POSTGRES_USER -d $$POSTGRES_DB"]
+      interval: 5s
+      timeout: 5s
+      retries: 5
+    command: postgres -c 'shared_preload_libraries=pg_cron'
+
+volumes:
+  pg_data:
