@@ -16,8 +16,8 @@ SUCCESS=0
 
 while [ $ATTEMPT_NUM -le $MAX_ATTEMPTS ]; do
     echo "Attempt $ATTEMPT_NUM/$MAX_ATTEMPTS to connect..."
-    PGPASSWORD=$DB_PASSWORD \
-    psql -h "$DB_HOST" -p "$DB_PORT" -U "$DB_USER" -d "$DB_NAME" -f init/pg_cron_job.sql >/dev/null 2>&1
+    docker compose exec -T db \
+         psql -U "$DB_USER" -d "$DB_NAME" -f /docker-entrypoint-initdb.d/pg_cron_job.sql
     if [ $? -eq 0 ]; then
         SUCCESS=1
         break

@@ -17,8 +17,6 @@ ENV POSTGRES_DB=data_collect
 ENV POSTGRES_USER=data_collect
 ENV POSTGRES_PASSWORD=data_collect
 
-RUN echo "cron.database_name = 'data_collect'" >> /var/lib/postgresql/data/postgresql.conf
-
 COPY init/*.sql /docker-entrypoint-initdb.d/
 
 EXPOSE 5432

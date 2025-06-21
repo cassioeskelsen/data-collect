@@ -20,7 +20,7 @@ This repository contains the PostgreSQL setup for a time-partitioned telemetry/e
 ### 1. Clone the repository
 
 ```bash
-git clone https://github.com/cassioeskelsen/data-collect
+git clone https://github.com/cassioeskelsen/data-collect.git
 cd database
 ```
 
@@ -71,3 +71,11 @@ make check
 - All SQL files in `init/` are automatically executed when the container starts for the first time.
 - `pg_cron` is configured to run inside the `data_collect` database.
 - Jobs are scheduled to run daily at midnight (`0 0 * * *`).
+
+## Sample Data
+
+To insert sample data into the database:
+
+```bash
+make insert_samples
+```

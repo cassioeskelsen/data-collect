@@ -20,7 +20,10 @@ services:
       interval: 5s
       timeout: 5s
       retries: 5
-    command: postgres -c 'shared_preload_libraries=pg_cron'
+    command: >
+      postgres
+        -c shared_preload_libraries=pg_cron
+        -c cron.database_name=data_collect
 
 volumes:
   pg_data:
