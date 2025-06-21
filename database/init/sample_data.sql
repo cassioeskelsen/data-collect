@@ -1,3 +1,14 @@
+CREATE TABLE IF NOT EXISTS public.data_collect_2025_06_20 PARTITION OF public.data_collect FOR VALUES FROM ('2025-06-20 00:00:00') TO ('2025-06-21 00:00:00');
+CREATE TABLE IF NOT EXISTS public.data_collect_2025_06_19 PARTITION OF public.data_collect FOR VALUES FROM ('2025-06-19 00:00:00') TO ('2025-06-20 00:00:00');
+CREATE TABLE IF NOT EXISTS public.data_collect_2025_06_18 PARTITION OF public.data_collect FOR VALUES FROM ('2025-06-18 00:00:00') TO ('2025-06-19 00:00:00');
+CREATE TABLE IF NOT EXISTS public.data_collect_2025_06_17 PARTITION OF public.data_collect FOR VALUES FROM ('2025-06-17 00:00:00') TO ('2025-06-18 00:00:00');
+CREATE TABLE IF NOT EXISTS public.data_collect_2025_06_16 PARTITION OF public.data_collect FOR VALUES FROM ('2025-06-16 00:00:00') TO ('2025-06-17 00:00:00');
+CREATE TABLE IF NOT EXISTS public.data_collect_2025_06_15 PARTITION OF public.data_collect FOR VALUES FROM ('2025-06-15 00:00:00') TO ('2025-06-16 00:00:00');
+CREATE TABLE IF NOT EXISTS public.data_collect_2025_06_14 PARTITION OF public.data_collect FOR VALUES FROM ('2025-06-14 00:00:00') TO ('2025-06-15 00:00:00');
+CREATE TABLE IF NOT EXISTS public.data_collect_2025_06_13 PARTITION OF public.data_collect FOR VALUES FROM ('2025-06-13 00:00:00') TO ('2025-06-14 00:00:00');
+CREATE TABLE IF NOT EXISTS public.data_collect_2025_06_12 PARTITION OF public.data_collect FOR VALUES FROM ('2025-06-12 00:00:00') TO ('2025-06-13 00:00:00');
+CREATE TABLE IF NOT EXISTS public.data_collect_2025_06_11 PARTITION OF public.data_collect FOR VALUES FROM ('2025-06-11 00:00:00') TO ('2025-06-12 00:00:00');
+
 INSERT INTO public.data_collect (aggregatetype, aggregateid, payload, created_at) VALUES ('weather', 'c808ff29', '{"temp": 23.41, "humidity": 58.2, "rainfall": 0.3, "station_id": "S-581"}', '2025-06-21T10:26:48.493095');
 INSERT INTO public.data_collect (aggregatetype, aggregateid, payload, created_at) VALUES ('track', '93e29909', '{"truck_id": "T-5701", "lat": -18.163787, "lon": -39.16137, "speed_kmh": 67.9}', '2025-06-21T13:44:48.493095');
 INSERT INTO public.data_collect (aggregatetype, aggregateid, payload, created_at) VALUES ('weather', '3bd9d851', '{"temp": 18.09, "humidity": 90.3, "rainfall": 6.5, "station_id": "S-893"}', '2025-06-21T12:11:48.493095');
