@@ -32,6 +32,6 @@ SELECT cron.unschedule('create_next_daily_partition_job');
 
 SELECT cron.schedule(
     'create_next_daily_partition_job',
-    '0 0 * * *',
+    '0 23 * * *',
     'SELECT create_next_daily_partition();'
 );
